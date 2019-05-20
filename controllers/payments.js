@@ -3,4 +3,8 @@ module.exports = function(app){
       console.log('Recebida requisicao de teste na porta 3000.')
       res.send('OK.');
     });
+
+    app.post("/payments/payment", function(req, res) {
+        res.send('ok');
+    });
   }

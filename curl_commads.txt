@@ -1,0 +1,15 @@
+  curl http://localhost:3000/pagamentos/pagamento \
+  -X POST \ 
+  -v \
+  -H "Content-type: application/json" \
+  -d '{
+          "forma_de_pagamento": "payfast",
+          "valor": "10.87",
+          "moeda": "BRL",
+          "descricao": "descrição do pagamento"
+      }'
+
+-X: indica o verbo
+-v: retorno verboso, mais detalhado
+-H: seta no Header o tipo de dado a ser enviado
+-d: indica o que enviar no corpo da requisição
