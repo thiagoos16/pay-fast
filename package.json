@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/thiagoos16/pay-fast#readme",
   "dependencies": {
+    "consign": "^0.1.6",
     "express": "^4.17.0"
   }
 }
