@@ -5,6 +5,8 @@ module.exports = function(app){
     });
 
     app.post("/payments/payment", function(req, res) {
+        var payment = req.body;
+        console.log(payment);
         res.send('ok');
     });
   }
