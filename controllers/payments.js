@@ -14,9 +14,25 @@ module.exports = function(app){
         payment.status = "CRIADO";
         payment.data = new Date;
 
-        paymentDao.save(payment, function(exception, result) {
-            console.log('payment created: ' + result);
-            res.json(payment);
+        req.assert('payment_way', 'Payment way is required!').notEmpty();
+        req.assert('value', 'Value is required!').notEmpty();
+        req.assert('coin', 'Coin is required!').notEmpty();
+        req.assert('description', 'Description is required!').notEmpty();
+
+        errors = req.validationErrors();
+
+        if (errors) {
+            res.status(400).send(errors);
+            return;
+        }
+
+        paymentDao.save(payment, function(error, result) {
+            if (error) {
+                res.send(error);
+            } else {
+                console.log('payment created: ' + result);
+                res.json(payment);
+            }
         });
     });
   }
