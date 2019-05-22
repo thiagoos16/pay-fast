@@ -30,8 +30,10 @@ module.exports = function(app){
             if (error) {
                 res.send(error);
             } else {
+                res.location('/payments/payments/' + result.insertId);
+
                 console.log('payment created: ' + result);
-                res.json(payment);
+                res.status(201).json(payment);
             }
         });
     });
